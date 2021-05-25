@@ -13,7 +13,7 @@ class MemoIndex extends Component {
     // {history: {…}, location: {…}, match: {…}, staticContext: undefined, Data: {…}, …}
     // Data: {Memo: Array(4), form: {…}}
     // getMemos: ƒ ()...}
-      console.log(this.props.Data)
+      console.log(this.props.Data)　// stateの中身
       console.log(this.props.Data.Memo)
       this.props.getMemos()
   }
