@@ -15,18 +15,28 @@ class MemoIndex extends Component {
     // getMemos: ƒ ()...}
       console.log(this.props.Data)　// stateの中身
       console.log(this.props.Data.Memo)
+      console.log(this.props.Data.Memo.nextId)
       this.props.getMemos()
   }
+  // const memos = this.props.memos;
+  // return _.map(memos, memo =>(
 
   renderData() {
     const data = this.props.Data.Memo
-    return data.map(d => 
+    return _.map(data, d => (
       <tr key={d.id}>
-        <td>{d.id}</td>
+        {/*   ↓ 遷移先のurlを/show/:idにするには、idを動的に変更しないといけない。
+    　　　　   だから、${d.id}と設定する。　*/}
+        <td>
+          <Link to={`/show/${d.id}`} >
+            {console.log(d.id)}
+            {d.id}
+          </Link>
+        </td>
         <td>{d.title}</td>
         <td>{d.memo}</td>
       </tr>
-    )
+    ))
   }
 
   render() {
@@ -65,7 +75,9 @@ class MemoIndex extends Component {
 // __proto__: Array(0)
 // form: {}
 // 上のオブジェクトが返ってくる。
+
 const mapStateToProps = state => ({ Data: state })
+// ここでstate.dataを設定する必要がある。
 
 // 前は下のように設定していてうまくいかなかった。
 // const mapStateToProps = state => ({

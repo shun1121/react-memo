@@ -1,7 +1,7 @@
 import {
     READ_MEMOS,
     // READ_MEMO,
-    // ADD_MEMO,
+    ADD_MEMO,
     // UPDATE_MEMO,
     // DELETE_MEMO,
 } from '../actions'
@@ -16,17 +16,32 @@ const initialState = {
         {  id: 3, title: "title3", memo: "memo3" },
         {  id: 4, title: "title4", memo: "memo4" },
     ],
+    nextId: 5,
 }
 
+// stateとactionから新しいstateを作成してreturnで返す。
 export default (state = initialState.data, action) => {
     switch(action.type) {
         case READ_MEMOS:
             return state
+        case ADD_MEMO:
+            // let nextId = 5
+            // const insertData = {
+            //     id : nextId++,
+            //     title : action.params.title,
+            //     memo : action.params.memo,
+            // }
+            // return [{ ...state, data : insertData}]; このやり方だと一つしかmemoを追加できない。
+
+            // こんな感じにするとinitialStateにnextId(5から)を追加して、重複をなくすことができる。
+            return [ ...state, {id : initialState.nextId++, title : action.params.title, memo : action.params.memo, }];
         default:
             return state
     }
 }
-
+// +++++++++++++++++++++++++
+// state = initialState.dataにしとるからADD_MEMOのところで、id : initialState.nextId++,とinitialStateからアクセスしてしまっている。
+// state = initialStateにして、state.nextIdで新しいidを更新できるようにしたい。
 
 
 // import {

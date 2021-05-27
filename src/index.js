@@ -12,6 +12,7 @@ import {
 import './index.css';
 import MemoIndex from './components/memoIndex';
 import MemoNew from './components/memoNew';
+import MemoShow from './components/memoShow'
 import reportWebVitals from './reportWebVitals';
 
 const store = createStore(reducer)
@@ -22,8 +23,8 @@ ReactDOM.render(
       <Switch>
         <Route exact path="/" component={MemoIndex} />
         <Route path="/new" component={MemoNew} />
-        {/* <Route path="/" component={MemoIndex} />
-        <Route path="/" component={MemoIndex} /> */}
+        <Route path="/show/:id" component={MemoShow} />
+        {/*<Route path="/" component={MemoIndex} /> */}
       </Switch>
     </BrowserRouter>
   </Provider>,
