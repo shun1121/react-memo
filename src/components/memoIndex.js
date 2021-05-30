@@ -15,7 +15,6 @@ class MemoIndex extends Component {
     // getMemos: ƒ ()...}
       console.log(this.props.Data)　// stateの中身
       console.log(this.props.Data.Memo)
-      console.log(this.props.Data.Memo.nextId)
       this.props.getMemos()
   }
   // const memos = this.props.memos;
@@ -29,7 +28,6 @@ class MemoIndex extends Component {
     　　　　   だから、${d.id}と設定する。　*/}
         <td>
           <Link to={`/show/${d.id}`} >
-            {console.log(d.id)}
             {d.id}
           </Link>
         </td>
@@ -39,8 +37,7 @@ class MemoIndex extends Component {
     ))
   }
 
-  render() {
-    
+  render() {   
     return (
       <div className="memoIndex" style={{ marginLeft: 30, marginTop: 30}}>
         <table>

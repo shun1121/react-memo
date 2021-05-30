@@ -1,6 +1,6 @@
 import {
     READ_MEMOS,
-    // READ_MEMO,
+    GET_MEMO,
     ADD_MEMO,
     // UPDATE_MEMO,
     // DELETE_MEMO,
@@ -35,6 +35,8 @@ export default (state = initialState.data, action) => {
 
             // こんな感じにするとinitialStateにnextId(5から)を追加して、重複をなくすことができる。
             return [ ...state, {id : initialState.nextId++, title : action.params.title, memo : action.params.memo, }];
+        case GET_MEMO:
+            return 
         default:
             return state
     }
